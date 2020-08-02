@@ -9,6 +9,7 @@ let removedHeroFromMyArray = heroes.pop() // heroes -> ["Mario", "Luigi", "Princ
 heroes.shift() //["Luigi", "Princess Peach", "Wario"]
 heroes.push('Sonic') // ["Sonic","Luigi", "Princess Peach", "Wario"]
 
+console.log (heroes)
 removedHeroFromMyArray = heroes.shift()  // heroes -> ["Luigi", "Princess Peach", "Wario"]  removedHeroFromMyArray -> "Sonic"
 
 heroes.unshift("Mario") //["Mario","Luigi", "Princess Peach", "Wario"]
@@ -25,30 +26,39 @@ const heroesJoined = heroes.join(' , ') //Mario , Hiro , Baymax , Wario
 const heroesSplited = heroesJoined.split(' , ')//["Mario", "Hiro", "Baymax", "Wario"]
 
 heroes.reverse()// ["Wario", "Baymax", "Hiro", "Mario"]
-heroes.sort() // ["Baymax", "Hiro", "Mario", "Wario"]
+heroes.sort() // ["Baymax", "Hiro", "Mario", "Wario"]
 
 const myNewheroes = 'Baby indestructible'
-const heroesConcatened = heroes.concat(myNewheroes) // ["Baymax", "Hiro", "Mario", "Wario", 'Baby indestructible' ]
+const heroesConcatened = heroes.concat(myNewheroes) // ["Baymax", "Hiro", "Mario", "Wario", 'Baby indestructible' ]
 
 // forEach
 let outside = []
-heroes.forEach(function (hero){outside.push(hero)}) // ["Baymax", "Hiro", "Mario", "Wario"]
+heroes.forEach(function (hero){outside.push(hero)}) // ["Baymax", "Hiro", "Mario", "Wario"]
 outside = []
 heroes.forEach(function (hero){outside.push(hero.toUpperCase())}) // ["BAYMAX", "HIRO", "MARIO", "WARIO"]
 outside = []
-heroes.forEach(function (hero){outside.push(hero.toLowerCase())}) //  ["baymax", "hiro", "mario", "wario"]
+heroes.forEach(function (hero){outside.push(hero.toLowerCase())}) //  ["baymax", "hiro", "mario", "wario"]
 outside = []
 heroes.forEach(function (hero, index){outside.push(hero.toLowerCase() + " " + index)}) //["baymax 0", "hiro 1", "mario 2", "wario 3"]
 outside = []
 heroes.forEach(function (hero, index, array){outside.push(`${index + 1}/${array.length} ${hero}`)})   //["1/4 Baymax", "2/4 Hiro", "3/4 Mario", "4/4 Wario"]
 
-const myNumbers= [32, 54 , 1, 28]
+
+//------------------
+const myNumbers= [4, 9, 16, 25, 54]
 let sum = 0
 myNumbers.forEach( (myNumber) => sum += myNumber)
-//console.log(sum) // 115
-
+//console.log(sum) // 108
 let found = myNumbers.find(number => number > 34) //54
 
+const map1 = myNumbers.map(x => x * 2)  //[8, 18, 32, 50, 108]
+const map2 = myNumbers.map(Math.sqrt); //[2, 3, 4, 5, 7.3484692283495345]
+const items = myNumbers.map(n => '<li>' + n + '</li>')
+const html = '<ul>' + items.join("") + '</ul>'
+console.log (html)
+
+
+//---------------------
 let bighero6 = "Big Hero 6 est une équipe de super-héros évoluant dans l'univers Marvel"
 bighero6 = bighero6.toUpperCase() //BIG HERO 6 EST UNE ÉQUIPE DE SUPER-HÉROS ÉVOLUANT DANS L'UNIVERS MARVEL
 bighero6 = bighero6.toLowerCase() //big hero 6 est une équipe de super-héros évoluant dans l'univers marvel
@@ -118,10 +128,7 @@ function findLongestWordLength(str) {
       maxLength = words[i].length;
     }
   }
-
   return maxLength;
 }
   //return str.length;
-
-
-console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); //retourn 6 -> jumped
