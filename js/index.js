@@ -58,7 +58,7 @@ const html = '<ul>' + items.join("") + '</ul>'
 console.log (html)
 
 
-//---------------------
+//-------------STRING  Maj Minus replacement trim éparpillement en array et recollage
 let bighero6 = "Big Hero 6 est une équipe de super-héros évoluant dans l'univers Marvel"
 bighero6 = bighero6.toUpperCase() //BIG HERO 6 EST UNE ÉQUIPE DE SUPER-HÉROS ÉVOLUANT DANS L'UNIVERS MARVEL
 bighero6 = bighero6.toLowerCase() //big hero 6 est une équipe de super-héros évoluant dans l'univers marvel
@@ -88,10 +88,15 @@ let objectString = new String('voici un object')
 objectString= objectString.valueOf(); // valueOf() renvoie la valeur primitive de l'objet String. object string -> string //Big Hero 6 est une team de Super-héros évoluant dans l'Univers Marvel
 //console.log(typeof objectString); //  return string
 
+
+//  createElement -> innerHtlm ou textContent -> appendChild Méthode brutal
+//                -> Var 2 document.createTextNode ("bla") -> var1 appendchild(var2) Méthode plus propre
+
 const here = document.getElementById("here")
 const li_heroes = document.createElement('li')
-here.appendChild(li_heroes)
 li_heroes.textContent=heroes
+here.appendChild(li_heroes)
+
 
 
 // REFERENCE
