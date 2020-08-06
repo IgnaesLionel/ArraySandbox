@@ -1,4 +1,5 @@
 // A-R-R-A-Y
+
 let heroes = ["Mario","Luigi", "Princess Peach"]
 heroes.push('Wario', 'Toad') //["Mario", "Luigi", "Princess Peach", "Wario", "Toad","]
 heroes[heroes.length]="Sonic" //["Mario", "Luigi", "Princess Peach", "Wario", "Toad", "Sonic"]
@@ -9,7 +10,6 @@ let removedHeroFromMyArray = heroes.pop() // heroes -> ["Mario", "Luigi", "Princ
 heroes.shift() //["Luigi", "Princess Peach", "Wario"]
 heroes.push('Sonic') // ["Sonic","Luigi", "Princess Peach", "Wario"]
 
-console.log (heroes)
 removedHeroFromMyArray = heroes.shift()  // heroes -> ["Luigi", "Princess Peach", "Wario"]  removedHeroFromMyArray -> "Sonic"
 
 heroes.unshift("Mario") //["Mario","Luigi", "Princess Peach", "Wario"]
@@ -26,7 +26,7 @@ const heroesJoined = heroes.join(' , ') //Mario , Hiro , Baymax , Wario
 const heroesSplited = heroesJoined.split(' , ')//["Mario", "Hiro", "Baymax", "Wario"]
 
 heroes.reverse()// ["Wario", "Baymax", "Hiro", "Mario"]
-heroes.sort() // ["Baymax", "Hiro", "Mario", "Wario"]
+heroes.sort() ///["Baymax", "Hiro", "Mario", "Wario"]
 
 const myNewheroes = 'Baby indestructible'
 const heroesConcatened = heroes.concat(myNewheroes) // ["Baymax", "Hiro", "Mario", "Wario", 'Baby indestructible' ]
@@ -55,7 +55,7 @@ const map1 = myNumbers.map(x => x * 2)  //[8, 18, 32, 50, 108]
 const map2 = myNumbers.map(Math.sqrt); //[2, 3, 4, 5, 7.3484692283495345]
 const items = myNumbers.map(n => '<li>' + n + '</li>')
 const html = '<ul>' + items.join("") + '</ul>'
-console.log (html)
+//console.log (html)
 
 
 //-------------STRING  Maj Minus replacement trim éparpillement en array et recollage
@@ -136,4 +136,11 @@ function findLongestWordLength(str) {
   return maxLength;
 }
   //return str.length;
-console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); //retourn 6 -> jumped
+let findLongest= findLongestWordLength("The quick brown fox jumped over the lazy dog"); //retourn 6 -> jumped
+
+// Number <-> string
+let myNumber = 12.95
+myNumber = parseInt(myNumber) //12 number
+myNumber=myNumber.toString //"12" string
+myNumber="12.95"
+myNumber = parseFloat(myNumber) //12.95 number
