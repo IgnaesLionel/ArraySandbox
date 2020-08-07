@@ -1,5 +1,4 @@
-// A-R-R-A-Y
-
+///////////////////////////////////////////////////////////////////////////////// A-R-R-A-Y
 let heroes = ["Mario","Luigi", "Princess Peach"]
 heroes.push('Wario', 'Toad') //["Mario", "Luigi", "Princess Peach", "Wario", "Toad","]
 heroes[heroes.length]="Sonic" //["Mario", "Luigi", "Princess Peach", "Wario", "Toad", "Sonic"]
@@ -19,17 +18,37 @@ heroes.lastIndexOf("Princess Peach") //return 2 recherche par la fin
 
 heroes.splice(1,2) //["Mario", "Wario"]
 heroes.push("Princess Peach", "Wario") //["Mario", "wario", "Princess Peach", "wario"]
-heroes.splice(1,2,"Hiro", "Baymax") //["Mario", "Hiro", "Baymax", "Wario"]   pos1 nb2
+heroes.splice(1,2,"Hiro", "Baymax") //["Mario", "Hiro", "Baymax", "Wario"]   pos1 nb2      Remplacement
+
+heroes.push("MegaMan", "Ryu") // ["Mario", "Hiro", "Baymax", "Wario", "MegaMan", "Ryu"]
+const heroesSpliced = heroes.splice(4,2)// ["Mario", "Hiro", "Baymax", "Wario"]   -> heroesSpliced =  ["MegaMan", "Ryu"]
 
 const mySlicedArray = heroes.slice(2,4) //["Baymax", "Wario"] [2] et [3] sans [4]
 const heroesJoined = heroes.join(' , ') //Mario , Hiro , Baymax , Wario
 const heroesSplited = heroesJoined.split(' , ')//["Mario", "Hiro", "Baymax", "Wario"]
 
+
+////////////////////////////////////////////////////////////////////////////// Triage
 heroes.reverse()// ["Wario", "Baymax", "Hiro", "Mario"]
 heroes.sort() ///["Baymax", "Hiro", "Mario", "Wario"]
 
+
+//trier par ordre alpahbétique sans prendre en compte les maj
+function insensible_a_la_case (a,b){
+  if (a.toUpperCase() < b.toUpperCase()) return -1;
+  if (a.toUpperCase() > b.toUpperCase()) return 1;
+  return 0
+}
+
+let notSorted = ["z","Z","r","R","y","u","a","b","r","f","F","t","y","w"]
+notSorted.sort(insensible_a_la_case) //) ["a", "b", "f", "F", "r", "R", "r", "t", "u", "w", "y", "y", "z", "Z"]
+//
+
 const myNewheroes = 'Baby indestructible'
 const heroesConcatened = heroes.concat(myNewheroes) // ["Baymax", "Hiro", "Mario", "Wario", 'Baby indestructible' ]
+
+heroesConcatened.includes("Baby indestructible") // true si il as trouvé
+
 
 // forEach
 let outside = []
@@ -105,7 +124,7 @@ let x = 20
 let y = x
 x= 22
 //console.log(y) //20  pas de reference
-// object
+// tableaux objects date regex fonction utilisent des pointeurs
 let a = ["mon","tableau"]
 let b = a
 a.push("ici")
@@ -138,9 +157,103 @@ function findLongestWordLength(str) {
   //return str.length;
 let findLongest= findLongestWordLength("The quick brown fox jumped over the lazy dog"); //retourn 6 -> jumped
 
+
+
+
 // Number <-> string
 let myNumber = 12.95
 myNumber = parseInt(myNumber) //12 number
 myNumber=myNumber.toString //"12" string
 myNumber="12.95"
 myNumber = parseFloat(myNumber) //12.95 number
+
+
+
+/////////////////////////////////////// BOUCLES
+
+let mesClients = ['Sara', 'Connor', 'James', 'Dean']
+
+//boucle dans l'ordre mais avec possibilité de changer d'ordre
+for (let i=0; i<mesClients.length;i++){
+//  console.log ("Bonjour" + mesClients[i] + "!")
+}
+
+// Boucle dans l'ordre
+mesClients.forEach(function(nom){
+  //console.log("Bonjour " + nom + "!")
+})
+
+
+/////////////////////////////////// regex https://regexlib.com/?AspxAutoDetectCookieSupport=1
+
+var maChaine ="Bonjour tout le monde !"
+var monRegExp = /on/g;  // mot // g=toute la chaine i=pas de Case maj/minus
+//^Bonjour //Bonjour$
+
+console.log(monRegExp.test(maChaine))
+
+
+//////////////////////
+
+let nombreAleatoire = Math.floor(Math.random()*100) +1;  // entre 1 et 100
+
+///////////////////// functions
+
+function calculerSomme(a,b){
+  // let mesArguments = Array.prototype.slice.apply(arguments) // crée un tableau avec les arguments
+  // mesArguments.sort() // tri par ordre aplha
+  let somme = 0;
+  for (let i=0; i < arguments.length; i++){
+    somme += arguments[i];
+    console.log (somme + arguments[2])
+}
+}
+
+calculerSomme(1,2,3,4,5) //15
+
+
+/// fonction avec 2 sortie grace a return vers un object
+function add_soust(valeur1,valeur2){
+  var somme = valeur1 + valeur2;
+  var difference = valeur1 -valeur2;
+  return {somme : somme, difference : difference};
+}
+let resultat = add_soust(15,40)// {somme: 55, difference: -25}
+console.log (resultat.somme) // 55
+
+// Pour sortir une variable d'une fonction vers le objet global
+//Variable globale en Javascript window.nomDeLaVariable
+//Variable globale en Node.js global.nomDeLaVariable
+
+
+function moyenne(mesNotes) {
+      let resultat = 0
+      for (let i = 0; i<mesNotes.length; i++){
+        resultat += mesNotes[i];
+      }
+
+      return resultat/ mesNotes.length
+}
+
+
+////// emballage de balise
+
+function balise_HTML(balise){
+  function emballer_text(text){
+    console.log("<" + balise + ">" + text + "</" + balise + ">")
+  }
+  return emballer_text
+}
+
+let afficher_H1 = balise_HTML("h1")
+afficher_H1("ceci est mon premier titre")
+
+///////// Compte à rebours
+
+function compte_a_rebours(nombre){
+  for (let i=nombre; i>0; i--)
+  {console.log (i)}
+  console.log("Terminé")
+}
+
+compte_a_rebours(5)
