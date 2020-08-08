@@ -257,3 +257,19 @@ function compte_a_rebours(nombre){
 }
 
 compte_a_rebours(5)
+
+//////////////////////////////////////// OBJECT
+let neo = {
+  name : "Thomas Anderson",
+  age : 32,
+  town : "Sion"
+}
+
+neo.onBoard=true;
+delete neo.onBoard
+
+console.log (neo)
+// boucle for in sur un objet
+ for (var cle in neo){
+   console.log(cle, neo[cle])
+ }
