@@ -273,3 +273,12 @@ console.log (neo)
  for (var cle in neo){
    console.log(cle, neo[cle])
  }
+
+
+ function compte_a_rebours2(nombre){
+   for (let i=nombre; i>0; i--)
+   {console.log (i)}
+   console.log("Terminé")
+ }
+
+ compte_a_rebours(5)
