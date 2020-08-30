@@ -1,3 +1,4 @@
+// ctrl + alt + f = prettier
 ///////////////////////////////////////////////////////////////////////////////// A-R-R-A-Y
 let heroes = ["Mario","Luigi", "Princess Peach"]
 heroes.push('Wario', 'Toad') //["Mario", "Luigi", "Princess Peach", "Wario", "Toad","]
@@ -14,6 +15,7 @@ removedHeroFromMyArray = heroes.shift()  // heroes -> ["Luigi", "Princess Peach"
 heroes.unshift("Mario") //["Mario","Luigi", "Princess Peach", "Wario"]
 
 heroes.indexOf("Princess Peach") //return 2
+heroes.indexOf("nimportequoi") //return -1 car il ne trouve pas
 heroes.lastIndexOf("Princess Peach") //return 2 recherche par la fin
 
 heroes.splice(1,2) //["Mario", "Wario"]
@@ -94,7 +96,7 @@ findMyDog = bighero6.search("team") // 19  mot qui commence a l'index 19
 findMyDog = []
 findMyDog = bighero6.charAt(19) // t  lettre a l'index 19
 findMyDog = []
-findMyDog=bighero6.indexOf("Super-héros"); //29 mot à l'index 29 en commençant par le début
+findMyDog = bighero6.indexOf("Super-héros"); //29 mot à l'index 29 en commençant par le début ------> return -1 si il ne trouve pas
 findMyDog = []
 findMyDog = bighero6.lastIndexOf("une");    //15 mot à l'index 15 en commençant par la fin
 findMyDog = []
@@ -273,12 +275,3 @@ console.log (neo)
  for (var cle in neo){
    console.log(cle, neo[cle])
  }
-
-
- function compte_a_rebours2(nombre){
-   for (let i=nombre; i>0; i--)
-   {console.log (i)}
-   console.log("Terminé")
- }
-
- compte_a_rebours(5)
