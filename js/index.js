@@ -275,3 +275,29 @@ console.log (neo)
  for (var cle in neo){
    console.log(cle, neo[cle])
  }
+
+
+
+ // BOUCLE LI DANS UL -> OBJECT NAME : VALUE
+ // for (let [level, value] of Object.entries(NOM DE MON OBJECT)){
+ //
+ //   const targetDowLevels = document.getElementById('dowLevels');
+ //   let dowli = document.createElement('li');
+ //   let clone = dowli.cloneNode();
+ //   clone = dowli.cloneNode();
+ //   clone.textContent = `${level} = ${value}`;
+ //   targetDowLevels.appendChild(clone);
+ // }
+
+ // BOUCLE LI DANS UL -> ARRAY VALUE
+ //
+ // // Affichage des levels sur le DOM
+ //     const targetDowLevels = document.getElementById('dowLevels')
+ //     let dowli = document.createElement('li')
+ //     let clone = dowli.cloneNode()
+ //     myDowLevels.forEach(function (level) {
+ //     clone = dowli.cloneNode();
+ //     clone.textContent = level;
+ //     targetDowLevels.appendChild(clone);
+ //     });
+ // //
