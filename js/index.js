@@ -34,6 +34,12 @@ const heroesSplited = heroesJoined.split(' , ')//["Mario", "Hiro", "Baymax", "Wa
 heroes.reverse()// ["Wario", "Baymax", "Hiro", "Mario"]
 heroes.sort() ///["Baymax", "Hiro", "Mario", "Wario"]
 
+let myFilter = heroes.filter(el => { //cherche le string baymax et ne le return pas
+  if (el != 'Baymax'){
+    return true}})
+//filter peut filtrer du json id:1, 
+console.log (myFilter)
+
 
 //trier par ordre alpahbétique sans prendre en compte les maj
 function insensible_a_la_case (a,b){
