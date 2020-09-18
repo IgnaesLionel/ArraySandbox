@@ -1,43 +1,79 @@
 // ctrl + alt + f = prettier
 ///////////////////////////////////////////////////////////////////////////////// A-R-R-A-Y
 let heroes = ["Mario","Luigi", "Princess Peach"]
-heroes.push('Wario', 'Toad') //["Mario", "Luigi", "Princess Peach", "Wario", "Toad","]
-heroes[heroes.length]="Sonic" //["Mario", "Luigi", "Princess Peach", "Wario", "Toad", "Sonic"]
+//["Mario","Luigi", "Princess Peach"]
 
-heroes.pop() //["Mario", "Luigi", "Princess Peach", "Wario", "Toad"]
-let removedHeroFromMyArray = heroes.pop() // heroes -> ["Mario", "Luigi", "Princess Peach", "Wario"] removedHeroFromMyArray -> "Toad"
+//ajoute 2 elements à la fin du array
+heroes.push('Wario', 'Toad')
+//["Mario", "Luigi", "Princess Peach", "Wario", "Toad","]
 
+//ajoute 1 elements à la fin,  ancienne méthode
+heroes[heroes.length]="Sonic"
+//["Mario", "Luigi", "Princess Peach", "Wario", "Toad", "Sonic"]
+
+//retire le denier élement
+heroes.pop()
+//["Mario", "Luigi", "Princess Peach", "Wario", "Toad"]
+
+//retire le dernier et l'ajoute dans un autre array
+let removedHeroFromMyArray = heroes.pop()
+//["Mario", "Luigi", "Princess Peach", "Wario"] removedHeroFromMyArray -> "Toad"
+
+//retire le premier élement du debut
 heroes.shift() //["Luigi", "Princess Peach", "Wario"]
-heroes.push('Sonic') // ["Sonic","Luigi", "Princess Peach", "Wario"]
 
-removedHeroFromMyArray = heroes.shift()  // heroes -> ["Luigi", "Princess Peach", "Wario"]  removedHeroFromMyArray -> "Sonic"
+//ajoute 1 element au debut
+heroes.unshift('Sonic') // ["Sonic","Luigi", "Princess Peach", "Wario"]
 
-heroes.unshift("Mario") //["Mario","Luigi", "Princess Peach", "Wario"]
+//retire le premier élement et l'ajoute dans un autre
+removedHeroFromMyArray = heroes.shift()
+//["Luigi", "Princess Peach", "Wario"]  removedHeroFromMyArray -> "Sonic"
 
+//ajoute 1 élement au debut
+heroes.unshift("Mario")
+//["Mario","Luigi", "Princess Peach", "Wario"]
+
+//recherche d'un élement
 heroes.indexOf("Princess Peach") //return 2
 heroes.indexOf("nimportequoi") //return -1 car il ne trouve pas
 heroes.lastIndexOf("Princess Peach") //return 2 recherche par la fin
 
-heroes.splice(1,2) //["Mario", "Wario"]
-heroes.push("Princess Peach", "Wario") //["Mario", "wario", "Princess Peach", "wario"]
-heroes.splice(1,2,"Hiro", "Baymax") //["Mario", "Hiro", "Baymax", "Wario"]   pos1 nb2      Remplacement
+//couper un morceau d'array, départ à 1 et prends 2 cases
+heroes.splice(1,2)
+//["Mario", "Wario"]
 
-heroes.push("MegaMan", "Ryu") // ["Mario", "Hiro", "Baymax", "Wario", "MegaMan", "Ryu"]
-const heroesSpliced = heroes.splice(4,2)// ["Mario", "Hiro", "Baymax", "Wario"]   -> heroesSpliced =  ["MegaMan", "Ryu"]
+heroes.push("Princess Peach", "Wario")
+//["Mario", "wario", "Princess Peach", "Wario"]
 
-const mySlicedArray = heroes.slice(2,4) //["Baymax", "Wario"] [2] et [3] sans [4]
-const heroesJoined = heroes.join(' , ') //Mario , Hiro , Baymax , Wario
-const heroesSplited = heroesJoined.split(' , ')//["Mario", "Hiro", "Baymax", "Wario"]
+//remplace deux élements à partir de l'index1 par deux nouveau
+heroes.splice(1,2,"Hiro", "Baymax")
+//["Mario", "Hiro", "Baymax", "Wario"]
+
+heroes.push("MegaMan", "Ryu")
+// ["Mario", "Hiro", "Baymax", "Wario", "MegaMan", "Ryu"]
+
+//couper deux élement a partir de l'index 4 et les mets dans un nouveau array
+const heroesSpliced = heroes.splice(4,2)
+// ["Mario", "Hiro", "Baymax", "Wario"]   -> heroesSpliced =  ["MegaMan", "Ryu"]
 
 
-////////////////////////////////////////////////////////////////////////////// Triage
+//copier et colle tout les élements ensemble espacé par une virgule
+const heroesJoined = heroes.join(' , ')
+//Mario , Hiro , Baymax , Wario   string
+
+//copier un string en élements tableau séparé par une virgule dans un nouveau array
+const heroesSplited = heroesJoined.split(' , ')
+//["Mario", "Hiro", "Baymax", "Wario"]
+
+//retourne un array completement
 heroes.reverse()// ["Wario", "Baymax", "Hiro", "Mario"]
+//range l'array en ordre alpha et num
 heroes.sort() ///["Baymax", "Hiro", "Mario", "Wario"]
 
 let myFilter = heroes.filter(el => { //cherche le string baymax et ne le return pas
   if (el != 'Baymax'){
     return true}})
-//filter peut filtrer du json id:1, 
+//filter peut filtrer du json id:1,
 console.log (myFilter)
 
 
@@ -307,3 +343,32 @@ console.log (neo)
  //     targetDowLevels.appendChild(clone);
  //     });
  // //
+
+//////////////// PROMISE
+const myPromise = new Promise((resolve, reject) =>{
+  const isRunning = true
+  if (isRunning === true) {
+    resolve() //meme nom que param1
+  }else {
+    reject() //meme nom que param2
+  }
+})
+myPromise.then(()=> {console.log("running")}).catch(() =>{console.log("fail")})
+
+//////////////////////////////
+const calcul = (num1, num2) => {
+  return new Promise((resolve, reject) => {
+  const result = num1 * num2
+  if (result > 1000) {
+    resolve(result) //meme nom que param1 (callback resolve -> result)
+  }else {
+    reject('resultat trop petit') //meme nom que param2
+  }
+  })
+}
+
+calcul(3, 9).then((resultRes) => { // recup callback du resolve
+  console.log('Resultat: ' + resultRes)
+}).catch((resultErr) => {    // recup callback du reject
+  console.log('Error :' + resultErr)
+})
