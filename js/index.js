@@ -248,10 +248,12 @@ let findLongest= findLongestWordLength("The quick brown fox jumped over the lazy
 
 // Number <-> string
 let myNumber = 12.95 // est un nombre
-myNumber = parseInt(myNumber) //12 arrondir un nombre
+myNumber = parseInt(myNumber) //12 retire les chiffres apres la virgule, sans arrondir
 myNumber=myNumber.toString //"12" transforme en string
-myNumber="12.95" // est un string
-myNumber = parseFloat(myNumber) //12.95 transforme en number
+myNumber="12.95651" // est un string
+myNumber = parseFloat(myNumber) //12.95651 transforme en number
+myNumber = myNumber.replace('.', ""); // retire le point ou tout autre symbol //1295651
+console.log ()
 
 
 
